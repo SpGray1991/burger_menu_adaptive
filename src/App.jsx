@@ -2,9 +2,9 @@ import s from "./App.module.css";
 
 const App = () => {
   return (
-    <div className="s.app">
+    <div className={s.app}>
       <nav>
-        <div className="s.burger-btn">
+        <div className={s.burger_btn}>
           <span />
         </div>
       </nav>
