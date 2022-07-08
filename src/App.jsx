@@ -1,6 +1,13 @@
 import s from "./App.module.css";
+import Menu from "./Menu/Menu";
 
 const App = () => {
+  const items = [
+    { value: "Главная", href: "/main", icon: "account_box" },
+    { value: "Услуги", href: "/service", icon: "api" },
+    { value: "Магазин", href: "/shop", icon: "add_shopping_cart" },
+    { value: "О нас", href: "/about", icon: "cast_connected" },
+  ];
   return (
     <div className={s.app}>
       <nav>
@@ -352,6 +359,7 @@ const App = () => {
           provident dignissimos sequi placeat vero repudiandae quis quos cumque.
         </p>
       </main>
+      <Menu header={"Бургер меню"} items={items} />
     </div>
   );
 };
