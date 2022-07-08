@@ -1,17 +1,24 @@
+import { useState } from "react";
 import s from "./App.module.css";
 import Menu from "./Menu/Menu";
 
 const App = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
   const items = [
     { value: "Главная", href: "/main", icon: "account_box" },
     { value: "Услуги", href: "/service", icon: "api" },
     { value: "Магазин", href: "/shop", icon: "add_shopping_cart" },
     { value: "О нас", href: "/about", icon: "cast_connected" },
   ];
+
   return (
     <div className={s.app}>
       <nav>
-        <div className={s.burger_btn}>
+        <div
+          className={s.burger_btn}
+          onClick={() => setMenuActive(!menuActive)}
+        >
           <span />
         </div>
       </nav>
@@ -359,7 +366,12 @@ const App = () => {
           provident dignissimos sequi placeat vero repudiandae quis quos cumque.
         </p>
       </main>
-      <Menu header={"Бургер меню"} items={items} />
+      <Menu
+        active={menuActive}
+        setActive={setMenuActive}
+        header={"Бургер меню"}
+        items={items}
+      />
     </div>
   );
 };
