@@ -1,9 +1,11 @@
 import { useState } from "react";
-import s from "./App.module.css";
+import "./App.css";
 import Menu from "./Menu/Menu";
+import Modal from "./Modal/Modal";
 
 const App = () => {
   const [menuActive, setMenuActive] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
 
   const items = [
     { value: "Главная", href: "/main", icon: "account_box" },
@@ -13,16 +15,16 @@ const App = () => {
   ];
 
   return (
-    <div className={s.app}>
+    <div className="app">
       <nav>
-        <div
-          className={s.burger_btn}
-          onClick={() => setMenuActive(!menuActive)}
-        >
+        <div className="burger_btn" onClick={() => setMenuActive(!menuActive)}>
           <span />
         </div>
       </nav>
       <main>
+        <button className="open-btn" onClick={() => setModalActive(true)}>
+          Open modal window
+        </button>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
           officia repellendus illum neque fugit molestiae explicabo, ipsam,
@@ -372,6 +374,14 @@ const App = () => {
         header={"Бургер меню"}
         items={items}
       />
+      <Modal active={modalActive} setActive={setModalActive}>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nisi?
+          Ducimus repellendus facere quo provident molestiae. Dignissimos rem
+          porro at maxime assumenda ipsa quisquam sint optio quam. Minima,
+          explicabo possimus.
+        </p>
+      </Modal>
     </div>
   );
 };
